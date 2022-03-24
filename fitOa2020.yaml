@@ -1,0 +1,73 @@
+# -------------------------------
+# Inputs for BANFF-like Fit - OA2020
+# -------------------------------
+
+fit: true # can be disabled with -d
+scanParameters: false # can be triggered with --scan
+generateOneSigmaPlots: false # can be enabled with --one-sigma
+generateSamplePlots: true
+
+fitterEngineConfig:
+
+  # Fixing parameters that don't have any effect on the sample.
+  # Sometimes Minuit has trouble computing the Hessian matrix (non-positive definite)
+  # while too many parameters are
+  fixGhostFitParameters: true
+  # If the stat chi2 don't move over this value, the parameter will be fixed
+  ghostParameterDeltaChi2Threshold: 0.005
+  fixGhostEigenParmetersAfterFirstRejected: true
+
+  # Apply gain on the determination of the step size for the fitter
+#  scaleParStepWithChi2Response: true # default :false. use 1 sigma instead
+#  parStepGain: 0.1
+
+  # Throw (correlated) parameters before making the fit
+  # This helps Minuit converge while doing an Asimov fit when too many fit parameters are involved
+  # Pushing the parameter away from the minimum allow Minuit to better scan the area
+  throwMcBeforeFit: true
+  # Some fit parameter may have huge prior, no need to push everybody at 1sigma in average
+  # ThrowPar = ParPrior +  throwMcBeforeFitGain * randomGaus(0, 1sigma)
+  throwMcBeforeFitGain: 0.1
+
+  # false by default
+  restoreStepSizeBeforeHesse: true
+
+  # Fitter engine config
+  minimizerConfig:
+    # https://root.cern.ch/doc/master/NumericalMinimization_8C.html
+    minimizer: "Minuit2"
+    algorithm: "Migrad"
+#    algorithm: "Fumili2"
+
+#    minimizer: "GSLMultiMin"
+#    algorithm: "BFGS2"
+#    algorithm: "ConjugateFR"
+
+    errors: "Hesse"
+#    errors: "Minos"
+    enablePostFitErrorFit: false
+
+    # https://root.cern.ch/download/minuit.pdf
+    print_level: 2
+    # Migrad: The default tolerance is 0.1, and the minimization will stop
+    # when the estimated vertical distance to the minimum (EDM) is less
+    # than 0.001*[tolerance]*UP (see SET ERR).
+    # UP:
+    # Minuit defines parameter errors as the change in parameter value required
+    # to change the function value by UP. Normally, for chisquared fits
+    # UP=1, and for negative log likelihood, UP=0.5
+    tolerance: 1E-4 # 1E-4
+    #    tolerance: 0.1 # for debug
+    strategy: 1 # used also in BANFF
+    max_iter: 100000
+    max_fcn: 1E9
+
+    # useNormalizedFitSpace is true by default
+    useNormalizedFitSpace: true
+
+  propagatorConfig:
+    throwAsimovFitParameters: false
+    dataSetList:            "./inputs/datasets/configDataSets.yaml"
+    fitSampleSetConfig:     "./inputs/samples/configSamples.yaml"
+    parameterSetListConfig: "./inputs/parameters/configParSet.yaml"
+    plotGeneratorConfig:    "./misc/commonConfigPlotGenerator.yaml"

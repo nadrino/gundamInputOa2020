@@ -1,0 +1,36 @@
+
+varDictionnaries:
+  - name: "ReactionCode"
+    dictionary: "./misc/ReactionCodesDict.yaml"
+
+histogramsDefinition:
+  - varToPlot: "Raw"
+
+  - varToPlot: "Pmu"
+    splitVars: ["", "ReactionCode"]
+#    useSampleBinning: true # if not possible, error
+    binningFile: "./misc/FHCNumuCC0PiPmuBinning.txt"
+    rescaleAsBinWidth: true # default true -> to look like a PDF
+    rescaleBinFactor: 100 # / 100 MeV
+#    xMax: 2000.
+    xTitle: "p_{#mu} (MeV)"
+    yTitle: "Counts / 100 MeV"
+
+  - varToPlot: "CosThetamu"
+    splitVars: [""]
+    useSampleBinning: true
+#      noData: true
+#      binningFile: ""
+
+  - varToPlot: "CosThetamu"
+    prefix: "_unNorm"
+    splitVars: [ "" ]
+    useSampleBinning: true
+    rescaleAsBinWidth: false
+
+canvasParameters:
+  height: 700
+  width: 1200
+  nbXplots: 3
+  nbYplots: 2
+

@@ -1,0 +1,128 @@
+# Sample Configuration
+
+dataEventType: Asimov # {Asimov, FakeData}
+llhStatFunction: "BarlowLLH_OA2020_Bad"
+
+fitSampleList:
+
+  ##########################
+  # FHC
+  ##########################
+
+  - name: "FHC FGD1 #nu_{#mu} CC 0#pi" # FGD1 numuCC 0pi
+    isEnabled: true
+    binning: "./inputs/samples/binnings/FHCNumuCC0Pi.txt"
+    selectionCuts: "SelectedSample == 3" # kFGD1NuMuCC0Pi
+    dataSets: [ "ND280" ]
+
+  - name: "FHC FGD1 #nu_{#mu} CC 1#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/FHCNumuCC1Pi.txt"
+    selectionCuts: "SelectedSample == 4" # kFGD1NuMuCC1Pi
+    dataSets: [ "ND280" ]
+
+  - name: "FHC FGD1 #nu_{#mu} CC Other"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/FHCNumuCCOth.txt"
+    selectionCuts: "SelectedSample == 5" # kFGD1NuMuCC1Pi
+    dataSets: [ "ND280" ]
+
+  - name: "FHC FGD2 #nu_{#mu} CC 0#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/FHCNumuCC0Pi.txt"
+    selectionCuts: "SelectedSample == 19" # kFGD2NuMuCC0Pi
+    dataSets: [ "ND280" ]
+
+  - name: "FHC FGD2 #nu_{#mu} CC 1#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/FHCNumuCC1Pi.txt"
+    selectionCuts: "SelectedSample == 20" # kFGD1NuMuCC1Pi
+    dataSets: [ "ND280" ]
+
+  - name: "FHC FGD2 #nu_{#mu} CC Other"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/FHCNumuCCOth.txt"
+    selectionCuts: "SelectedSample == 21" # kFGD1NuMuCC1Pi
+    dataSets: [ "ND280" ]
+
+
+  ##########################
+  # RHC
+  ##########################
+
+  - name: "RHC FGD1 #bar{#nu}_{#mu} CC 0#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCANumuCC0Pi.txt"
+    selectionCuts: "SelectedSample == 43" # kFGD1NuMuCC0Pi
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD1 #bar{#nu}_{#mu} CC 1#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCANumuCC1Pi.txt"
+    selectionCuts: "SelectedSample == 44" # kFGD1NuMuCC1Pi
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD1 #bar{#nu}_{#mu} CC Others"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCANumuCCOth.txt"
+    selectionCuts: "SelectedSample == 45" # kFGD1NuMuCC1Pi
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD2 #bar{#nu}_{#mu} CC 0#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCANumuCC0Pi.txt"
+    selectionCuts: "SelectedSample == 49" # kFGD1NuMuCC0Pi
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD2 #bar{#nu}_{#mu} CC 1#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCANumuCC1Pi.txt"
+    selectionCuts: "SelectedSample == 50" # kFGD1NuMuCC1Pi
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD2 #bar{#nu}_{#mu} CC Others"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCANumuCCOth.txt"
+    selectionCuts: "SelectedSample == 51" # kFGD1NuMuCC1Pi
+    dataSets: [ "ND280" ]
+
+
+  ##########################
+  # RHC - NUMU BKG
+  ##########################
+
+  - name: "RHC FGD1 #nu_{#mu} (background) CC 0#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCNumuCC0Pi.txt"
+    selectionCuts: "SelectedSample == 55" # FGD1 NuMuBkg CC0pi in AntiNu Mode
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD1 #nu_{#mu} (background) CC 1#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCNumuCC1Pi.txt"
+    selectionCuts: "SelectedSample == 56" # FGD1 NuMuBkg CC1pi in AntiNu Mode
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD1 #nu_{#mu} (background) CC Other"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCNumuCCOth.txt"
+    selectionCuts: "SelectedSample == 57" # FGD1 NuMuBkg CCother in AntiNu Mode
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD2 #nu_{#mu} (background) CC 0#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCNumuCC0Pi.txt"
+    selectionCuts: "SelectedSample == 61" # FGD2 NuMuBkg CC0pi in AntiNu Mode
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD2 #nu_{#mu} (background) CC 1#pi"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCNumuCC1Pi.txt"
+    selectionCuts: "SelectedSample == 62" # FGD2 NuMuBkg CC1pi in AntiNu Mode
+    dataSets: [ "ND280" ]
+
+  - name: "RHC FGD2 #nu_{#mu} (background) CC Other"
+    isEnabled: true
+    binning: "./inputs/samples/binnings/RHCNumuCCOth.txt"
+    selectionCuts: "SelectedSample == 63" # FGD2 NuMuBkg CCother in AntiNu Mode
+    dataSets: [ "ND280" ]
