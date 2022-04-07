@@ -9,6 +9,31 @@ generateSamplePlots: true
 
 fitterEngineConfig:
 
+  # Scanning parameters
+  scanConfig:
+    # With how many points the range will be scanned
+    # default: 100
+    nbPoints: 100
+
+    # Range in unit of sigma
+    # default: -3, 3
+    parameterSigmaRange: [-3,3]
+
+    # When limits are defined, used them as the scan boundaries
+    # If parameterSigmaRange is under the limit, then parameterSigmaRange is used.
+    # default: true
+    useParameterLimits: true
+
+    # Breakdown scans
+    varsConfig:
+      llh: true
+      llhPenalty: true
+      llhStat: true
+      llhStatPerSample: true
+      llhStatPerSamplePerBin: false
+      weightPerSample: false
+      weightPerSamplePerBin: false
+
   # Fixing parameters that don't have any effect on the sample.
   # Sometimes Minuit has trouble computing the Hessian matrix (non-positive definite)
   # while too many parameters are
@@ -49,6 +74,7 @@ fitterEngineConfig:
 
     # https://root.cern.ch/download/minuit.pdf
     print_level: 2
+
     # Migrad: The default tolerance is 0.1, and the minimization will stop
     # when the estimated vertical distance to the minimum (EDM) is less
     # than 0.001*[tolerance]*UP (see SET ERR).
@@ -62,7 +88,10 @@ fitterEngineConfig:
     max_iter: 100000
     max_fcn: 1E9
 
-    # useNormalizedFitSpace is true by default
+    # useNormalizedFitSpace: when true, every parameter is rescaled such as the
+    # prior mean value is set to 0 and the prior sigma is set to 1. This option
+    # can help Minuit to converge while some parameter may have very different scales.
+    # default: true
     useNormalizedFitSpace: true
 
   propagatorConfig:
