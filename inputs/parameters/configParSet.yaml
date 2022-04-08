@@ -1,6 +1,9 @@
 
 
 - name: Oscillation Parameters
+
+  # DEV BASE
+
   isEnabled: false
 
   parameterDefinitions:
@@ -73,7 +76,7 @@
 # Each bin of the matrix represent a kinematic bin
 # Eigen decompose must be done
 - name: ND280 Detector Systematics
-  isEnabled: true
+  isEnabled: false
 
 #  useEigenDecompInFit: true
 #  fixGhostFitParameters: true
@@ -163,7 +166,7 @@
 
 # Cross-Section systematics
 - name: Cross-Section Systematics
-  isEnabled: true
+  isEnabled: false
 
   # Allow fit parameters to be thrown before fit (default: true)
   throwMcBeforeFit: false
