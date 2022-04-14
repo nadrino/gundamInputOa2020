@@ -52,7 +52,7 @@
 #  maxNbEigenParameters: 30
 
   # Allow fit parameters to be thrown before fit (default: true)
-  throwMcBeforeFit: true
+  enabledThrowToyParameters: true
 #  customFitParThrow:
 #    - { parIndex: 0, nbSigmaAway: 0.1 }
 
@@ -63,7 +63,7 @@
     minValue: 0
     maxValue: 2
   useOnlyOneParameterPerEvent: true
-  atLeastOneDialPerEvent: true # TODO: IMPLEMENT!
+  atLeastOneDialPerEvent: true # TODO: IMPLEMENT?
   dialSetDefinitions:
     - applyOnDataSets: ["*"]
       propagateResponseOn: [ "weight" ] # TODO: implement
@@ -84,7 +84,7 @@
 #  maxNbEigenParameters: 45
 
   # Allow fit parameters to be thrown before fit (default: true)
-  throwMcBeforeFit: false
+  enabledThrowToyParameters: false
 
   covarianceMatrixFilePath: "./inputs/parameters/detector/obsnorm_574binning_BANFF_Neutrino2020.root.decomp.root"
   covarianceMatrixTMatrixD: Covariance_Matrix
@@ -110,8 +110,6 @@
 #  useEigenDecompInFit: true
 #  fixGhostFitParameters: true
 
-  # Allow fit parameters to be thrown before fit (default: true)
-  throwMcBeforeFit: false
 
   covarianceMatrixFilePath: "./inputs/parameters/xsecBinned/xsec_bin_parameter_file_BANFF_Neutrino2020.root"
   covarianceMatrixTMatrixD: xsec_bin_cov
@@ -119,6 +117,11 @@
   parameterPriorTVectorD: xsec_bin_param_prior
   parameterLowerBoundsTVectorD: xsec_bin_param_lb
   parameterUpperBoundsTVectorD: xsec_bin_param_ub
+
+  # Toy throwing properties
+  throwEnabledList: "xsec_bin_param_throw"
+  enabledThrowToyParameters: true
+
   printDialSetsSummary: true
 
   parameterDefinitions:
@@ -168,9 +171,6 @@
 - name: Cross-Section Systematics
   isEnabled: false
 
-  # Allow fit parameters to be thrown before fit (default: true)
-  throwMcBeforeFit: false
-
   covarianceMatrixFilePath: "./inputs/parameters/xsec/xsec_parameters_BANFF_Neutrino2020.root"
   covarianceMatrixTMatrixD: xsec_cov
   parameterNameTObjArray: xsec_param_names
@@ -178,6 +178,10 @@
   parameterLowerBoundsTVectorD: xsec_param_lb
   parameterUpperBoundsTVectorD: xsec_param_ub
   printDialSetsSummary: true
+
+  # Toy throwing properties
+  throwEnabledList: "xsec_param_throw"
+  enabledThrowToyParameters: true
 
   parameterDefinitions:
     - parameterName: "MAQE"
@@ -459,13 +463,13 @@
       dialSetDefinitions:
         - dialsType: Normalization
           nominal: 1
-          applyCondition: "[NeutrinoCode] == 14"
+          applyCondition: "[NeutrinoCode] == 12"
     - parameterName: "nuebar_numubar"
       isEnabled: false # DISABLED
       dialSetDefinitions:
         - dialsType: Normalization
           nominal: 1
-          applyCondition: "[NeutrinoCode] == -14"
+          applyCondition: "[NeutrinoCode] == -12"
 
 
     - parameterName: "CC_DIS_MultPi_Norm_Nu"

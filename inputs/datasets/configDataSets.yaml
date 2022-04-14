@@ -22,6 +22,16 @@
 #      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run8wMCsplines.root"
 #      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run9MCsplines.root"
 
+    toyParameters:
+      overrideNominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * DetNomWeight"
+      nMaxToys: 1000
+      overrideVariables: # originalVarName, toyVarName[nMaxToys]
+        - { var: "Pmu",            toyVar: "Toy_LeptonMom"}
+        - { var: "CosThetamu",     toyVar: "Toy_LeptonCos"}
+        - { var: "SelectedSample", toyVar: "Toy_Selection"}
+        - { var: "DetNomWeight",   toyVar: "Toy_DetWeight"}
+        - { var: "VertexID",       toyVar: "Toy_Selection"}
+
 #  data:
 #    tree: "sample_sum"
 #    #    nominalWeightFormula: "FluxWeight[0] * DetNomWeight * PileUpWeight * POTWeight * T2KRW_NIWGWeightToy[0]"

@@ -10,7 +10,6 @@ histogramsDefinition:
     splitVars: ["", "ReactionCode"]
 #    useSampleBinning: true # if not possible, error
     binningFile: "./misc/FHCNumuCC0PiPmuBinning.txt"
-    rescaleAsBinWidth: true # default true -> to look like a PDF
     rescaleBinFactor: 100 # / 100 MeV
 #    xMax: 2000.
     xTitle: "p_{#mu} (MeV)"
@@ -19,6 +18,7 @@ histogramsDefinition:
   - varToPlot: "CosThetamu"
     splitVars: [""]
     useSampleBinning: true
+    xTitle: "#{cos}(#{theta}_{#mu})"
 #      noData: true
 #      binningFile: ""
 
@@ -26,7 +26,16 @@ histogramsDefinition:
     prefix: "_unNorm"
     splitVars: [ "" ]
     useSampleBinning: true
-    rescaleAsBinWidth: false
+    rescaleAsBinWidth: false # show the true stat in each bin
+    xTitle: "#{cos}(#{theta}_{#mu})"
+
+  # dev Y vs X
+  - varToPlot: "CosThetamu:Pmu"
+    useSampleBinning: true
+    xTitle: "p_{#mu} (MeV)"
+    yTitle: "#{cos}(#{theta}_{#mu})"
+    zTitle: "Counts (/bin area)"
+
 
 canvasParameters:
   height: 700

@@ -55,7 +55,7 @@ fitterEngineConfig:
   throwMcBeforeFitGain: 0.1
 
   # false by default
-  restoreStepSizeBeforeHesse: true
+  restoreStepSizeBeforeHesse: false
 
   # Fitter engine config
   minimizerConfig:
@@ -95,7 +95,6 @@ fitterEngineConfig:
     useNormalizedFitSpace: true
 
   propagatorConfig:
-    throwAsimovFitParameters: false
     dataSetList:            "./inputs/datasets/configDataSets.yaml"
     fitSampleSetConfig:     "./inputs/samples/configSamples.yaml"
     parameterSetListConfig: "./inputs/parameters/configParSet.yaml"
