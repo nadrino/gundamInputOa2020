@@ -23,7 +23,7 @@
 #      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run9MCsplines.root"
 
     toyParameters:
-      overrideNominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * DetNomWeight"
+      overrideNominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * Toy_DetWeight[<I_TOY>]"
       nMaxToys: 1000
       overrideVariables: # originalVarName, toyVarName[nMaxToys]
         - { var: "Pmu",            toyVar: "Toy_LeptonMom"}

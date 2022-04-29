@@ -49,7 +49,7 @@ fitterEngineConfig:
   # Throw (correlated) parameters before making the fit
   # This helps Minuit converge while doing an Asimov fit when too many fit parameters are involved
   # Pushing the parameter away from the minimum allow Minuit to better scan the area
-  throwMcBeforeFit: true
+  throwMcBeforeFit: false
   # Some fit parameter may have huge prior, no need to push everybody at 1sigma in average
   # ThrowPar = ParPrior +  throwMcBeforeFitGain * randomGaus(0, 1sigma)
   throwMcBeforeFitGain: 0.1

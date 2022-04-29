@@ -43,7 +43,7 @@
 # Flux Systematics:
 # Each parameter represent a bin in true neutrino energy / flavor / FHC-RHC
 - name: Flux Systematics
-  isEnabled: true
+  isEnabled: false
 
   # Fit Parameters Options:
 #  useEigenDecompInFit: false
@@ -105,7 +105,7 @@
 
 # Cross-Section systematics (binned)
 - name: Cross-Section Systematics (binned splines)
-  isEnabled: true
+  isEnabled: false
 
 #  useEigenDecompInFit: true
 #  fixGhostFitParameters: true

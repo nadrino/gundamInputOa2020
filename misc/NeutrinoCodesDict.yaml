@@ -1,0 +1,6 @@
+# ReactionCode Dictionary
+- { value: 0, title: "UNDEFINED", color: 1 } # kBlack
+- { value: 12, title: "#nu_{e}", color: 867 }
+- { value: 14, title: "#nu_{#mu}", color: 413 }
+- { value: -12, title: "#bar{#nu}_{e}", color: 867, fillStyle: 3001 }
+- { value: -14, title: "#bar{#nu}_{#mu}", color: 413, fillStyle: 3001 }

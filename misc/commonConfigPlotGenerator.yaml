@@ -2,17 +2,28 @@
 varDictionnaries:
   - name: "ReactionCode"
     dictionary: "./misc/ReactionCodesDict.yaml"
+  - name: "NeutrinoCode"
+    dictionary: "./misc/NeutrinoCodesDict.yaml"
 
 histogramsDefinition:
   - varToPlot: "Raw"
 
   - varToPlot: "Pmu"
-    splitVars: ["", "ReactionCode"]
+    splitVars: ["", "ReactionCode", "NeutrinoCode"]
 #    useSampleBinning: true # if not possible, error
     binningFile: "./misc/FHCNumuCC0PiPmuBinning.txt"
     rescaleBinFactor: 100 # / 100 MeV
 #    xMax: 2000.
     xTitle: "p_{#mu} (MeV)"
+    yTitle: "Counts / 100 MeV"
+
+  - varToPlot: "Enu"
+    splitVars: ["", "ReactionCode", "NeutrinoCode"]
+#    useSampleBinning: true # if not possible, error
+    binningFile: "./misc/enuBinning.txt"
+    rescaleBinFactor: 100 # / 100 MeV
+#    xMax: 2000.
+    xTitle: "E_{#mu} (GeV)"
     yTitle: "Counts / 100 MeV"
 
   - varToPlot: "CosThetamu"
