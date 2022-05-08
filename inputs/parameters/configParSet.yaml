@@ -43,7 +43,7 @@
 # Flux Systematics:
 # Each parameter represent a bin in true neutrino energy / flavor / FHC-RHC
 - name: Flux Systematics
-  isEnabled: false
+  isEnabled: true
 
   # Fit Parameters Options:
 #  useEigenDecompInFit: false
@@ -76,7 +76,7 @@
 # Each bin of the matrix represent a kinematic bin
 # Eigen decompose must be done
 - name: ND280 Detector Systematics
-  isEnabled: false
+  isEnabled: true
 
 #  useEigenDecompInFit: true
 #  fixGhostFitParameters: true
@@ -105,7 +105,7 @@
 
 # Cross-Section systematics (binned)
 - name: Cross-Section Systematics (binned splines)
-  isEnabled: false
+  isEnabled: true
 
 #  useEigenDecompInFit: true
 #  fixGhostFitParameters: true
@@ -169,7 +169,7 @@
 
 # Cross-Section systematics
 - name: Cross-Section Systematics
-  isEnabled: false
+  isEnabled: true
 
   covarianceMatrixFilePath: "./inputs/parameters/xsec/xsec_parameters_BANFF_Neutrino2020.root"
   covarianceMatrixTMatrixD: xsec_cov
