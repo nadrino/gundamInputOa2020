@@ -1,6 +1,5 @@
 # Sample Configuration
 
-dataEventType: Asimov # {Asimov, FakeData}
 llhStatFunction: "BarlowLLH_OA2020_Bad"
 
 fitSampleList:
@@ -9,7 +8,8 @@ fitSampleList:
   # FHC
   ##########################
 
-  - name: "FHC FGD1 #nu_{#mu} CC 0#pi" # FGD1 numuCC 0pi
+  # Samples definition:
+  - name: "FHC FGD1 #nu_{#mu} CC 0#pi"
     isEnabled: true
     binning: "./inputs/samples/binnings/FHCNumuCC0Pi.txt"
     selectionCuts: "SelectedSample == 3" # kFGD1NuMuCC0Pi

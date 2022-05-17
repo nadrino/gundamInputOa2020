@@ -70,7 +70,7 @@ fitterEngineConfig:
 
     errors: "Hesse"
 #    errors: "Minos"
-    enablePostFitErrorFit: false
+    enablePostFitErrorFit: true
 
     # https://root.cern.ch/download/minuit.pdf
     print_level: 2

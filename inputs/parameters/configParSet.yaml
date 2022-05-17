@@ -419,7 +419,7 @@
         - dialsType: Normalization
           nominal: 1
           applyConditions:
-            - { expression: "[Enu]",          allowedRanges: [[0.3, 0.6]] } # "[Enu] >= 0.3 && [Enu] < 0.6"
+            - { expression: "[Enu]", allowedRanges: [[0.3, 0.6]] } # "[Enu] >= 0.3 && [Enu] < 0.6"
             - "[NeutrinoCode] == 14 || [NeutrinoCode] == 12"
             - "[TgtMat] == 12 || [TgtMat] == 16"
             - {
