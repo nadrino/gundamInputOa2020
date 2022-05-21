@@ -6,12 +6,13 @@
   isEnabled: true
   selectedDataEntry: "Asimov" # default
 #  selectedDataEntry: "2p2h twice"
-  selectedToyEntry: "pValueToys" # default: Asimov
+  selectedToyEntry: "Asimov" # default: Asimov
+#  selectedToyEntry: "pValueToys" # default: Asimov
 
   mc:
     tree: "sample_sum"
     nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * passedPsyche"
-    additionalLeavesStorage: [ "SelectedSample" ]
+#    additionalLeavesStorage: [ "SelectedSample" ]
     filePathList:
       - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root"
       - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run5MCsplines.root"
@@ -26,11 +27,11 @@
 #      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run9MCsplines.root"
 
   data:
-    - name: "2p2h twice"
+    - name: "2p2hTwice"
       fromMc: true
-      nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * passedPsyche"
+      nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) )"
 
-    - name: "ND280 real data"
+    - name: "RealData"
       nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight"
       filePathList:
         - "./P6T_Latest/Data/run4aMCsplines.root"
@@ -38,11 +39,16 @@
 
     - name: "pValueToys"
       fromMc: true
-      nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * passedPsyche * Toy_DetWeight[<I_TOY>]"
+      filePathList:
+        - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded_DetThrows/run4a_throw_splines.root"
+        - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded_DetThrows/run5_throw_splines.root"
+#      nominalWeightFormula: "FluxWeight[0] * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * Toy_DetWeight[<I_TOY>]"
+      nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight"
       nMaxToys: 1000
-      overrideVariables: # originalVarName, toyVarName[nMaxToys]
-        - { var: "Pmu",            toyVar: "Toy_LeptonMom[<I_TOY>]" }
-        - { var: "CosThetamu",     toyVar: "Toy_LeptonCos[<I_TOY>]" }
-        - { var: "SelectedSample", toyVar: "Toy_Selection[<I_TOY>]" }
-        - { var: "DetNomWeight",   toyVar: "Toy_DetWeight[<I_TOY>]" }
-        - { var: "VertexID",       toyVar: "Toy_Selection[<I_TOY>]" }
+      overrideLeafDict: # originalVarName, toyVarName[nMaxToys]
+        - { eventVar: "Pmu",            leafVar: "psycheSyst_LeptonMomToy[<I_TOY>]" }
+        - { eventVar: "CosThetamu",     leafVar: "psycheSyst_LeptonCosToy[<I_TOY>]" }
+        - { eventVar: "SelectedSample", leafVar: "psycheSyst_SelectionToy[<I_TOY>]" }
+        - { eventVar: "DetNomWeight",   leafVar: "psycheSyst_WeightToy[<I_TOY>]" }
+        - { eventVar: "VertexID",       leafVar: "psycheSyst_iVertexID[<I_TOY>]" }
+        - { eventVar: "isRHC",          leafVar: "Run" }
