@@ -4,6 +4,7 @@
 
 - name: "ND280"
   isEnabled: true
+
   selectedDataEntry: "Asimov" # default
 #  selectedDataEntry: "2p2h twice"
   selectedToyEntry: "Asimov" # default: Asimov
@@ -16,15 +17,6 @@
     filePathList:
       - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root"
       - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run5MCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run2aMCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run2wMCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run3MCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run4wMCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run6MCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run7MCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run8aMCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run8wMCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/run9MCsplines.root"
 
   data:
     - name: "2p2hTwice"
@@ -42,9 +34,8 @@
       filePathList:
         - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded_DetThrows/run4a_throw_splines.root"
         - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded_DetThrows/run5_throw_splines.root"
-#      nominalWeightFormula: "FluxWeight[0] * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * Toy_DetWeight[<I_TOY>]"
-      nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight"
-      nMaxToys: 1000
+      nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * Toy_DetWeight[<I_TOY>]"
+      nMaxToys: 2001
       overrideLeafDict: # originalVarName, toyVarName[nMaxToys]
         - { eventVar: "Pmu",            leafVar: "psycheSyst_LeptonMomToy[<I_TOY>]" }
         - { eventVar: "CosThetamu",     leafVar: "psycheSyst_LeptonCosToy[<I_TOY>]" }
