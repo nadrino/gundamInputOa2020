@@ -95,6 +95,9 @@ fitterEngineConfig:
     useNormalizedFitSpace: true
 
   propagatorConfig:
+    showEventBreakdown: true # default: true
+    showEventBreakdownBeforePrior: true # default: false
+
     dataSetList:            "./inputs/datasets/configDataSets.yaml"
     fitSampleSetConfig:     "./inputs/samples/configSamples.yaml"
     parameterSetListConfig: "./inputs/parameters/configParSet.yaml"

@@ -5,6 +5,8 @@
 - name: "ND280"
   isEnabled: true
 
+  showSelectedEventCount: true
+
   selectedDataEntry: "Asimov" # default
 #  selectedDataEntry: "2p2h twice"
   selectedToyEntry: "Asimov" # default: Asimov
