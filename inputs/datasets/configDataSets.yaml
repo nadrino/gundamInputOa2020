@@ -12,11 +12,22 @@
 
   mc:
     tree: "sample_sum"
-    nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight"
+    nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) )"
 #    additionalLeavesStorage: [ "SelectedSample" ]
     filePathList:
-      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root"
-      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run5MCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run5MCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run2aMCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run2wMCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run3MCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run4wMCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run6MCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run7MCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run8aMCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run8wMCsplines.root"
+      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run9MCsplines.root"
+#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root"
+#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run5MCsplines.root"
 
   data:
     - name: "2p2hTwice"
@@ -32,8 +43,18 @@
     - name: "pValueToys"
       fromMc: true
       filePathList:
-        - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded_DetThrows/run4a_throw_splines.root"
-        - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded_DetThrows/run5_throw_splines.root"
+        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run2a_throw_splines.root"
+        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run3_throw_splines.root"
+        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run4a_throw_splines.root"
+        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run4w_throw_splines.root"
+        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run5_throw_splines.root"
+        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run6_throw_splines.root"
+        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run7_throw_splines.root"
+#        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run8a_throw_splines.root"
+        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run8w_throw_splines.root"
+        - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows/run9_throw_splines.root"
+#        - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded_DetThrows/run4a_throw_splines.root"
+#        - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded_DetThrows/run5_throw_splines.root"
       nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * Toy_DetWeight[<I_TOY>]"
       nMaxToys: 2001
       overrideLeafDict: # originalVarName, toyVarName[nMaxToys]
