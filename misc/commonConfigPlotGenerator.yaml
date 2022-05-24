@@ -40,12 +40,12 @@ histogramsDefinition:
     rescaleAsBinWidth: false # show the true stat in each bin
     xTitle: "#{cos}(#{theta}_{#mu})"
 
-  # dev Y vs X
-  - varToPlot: "CosThetamu:Pmu"
-    useSampleBinning: true
-    xTitle: "p_{#mu} (MeV)"
-    yTitle: "#{cos}(#{theta}_{#mu})"
-    zTitle: "Counts (/bin area)"
+  # dev Y vs X TODO!
+#  - varToPlot: "CosThetamu:Pmu"
+#    useSampleBinning: true
+#    xTitle: "p_{#mu} (MeV)"
+#    yTitle: "#{cos}(#{theta}_{#mu})"
+#    zTitle: "Counts (/bin area)"
 
 
 canvasParameters:
