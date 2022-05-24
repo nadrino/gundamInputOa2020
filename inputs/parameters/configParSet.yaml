@@ -1,43 +1,43 @@
 
 
-- name: Oscillation Parameters
-
-  # DEV BASE
-
-  isEnabled: false
-
-  parameterDefinitions:
-    - parameterName: "sin^{2}(2#theta_{14})"
-      # nested parameter -> apply along with "#Delta m^{2}_{14}"
-      isEnabled: true
-      priorValue: 0
-      priorType: Flat
-      parameterLimit:
-        minValue: 0
-        maxValue: 1
-      dialSetDefinitions:
-        - dialsType: Normalization
-          isNested: true
-
-    - parameterName: "#Delta m^{2}_{14}"
-      isEnabled: true
-      priorValue: 2
-      priorType: Flat
-      parameterLimit:
-        minValue: 1
-        maxValue: 100
-
-      dialSetDefinitions:
-        - dialsType: Normalization
-          isNested: true
-
-  nestedDials:
-    - name: "Disappearance probability"
-      applyOnDataSets: [ "*" ]
-      propagateResponseOn: [ "weight" ] # TODO: implement
-      applyCondition: "TMath::Abs([NeutrinoCode]) == 12" # apply on nue
-      parametersList: ["sin^{2}(2#theta_{14})", "#Delta m^{2}_{14}"] # the way it is indexed
-      evalFormula: "1 - x[0] * TMath::Sq(TMath::Sin( 1.27 * x[1] * 0.280 / [Enu] ))"
+#- name: Oscillation Parameters
+#
+#  # DEV BASE
+#
+#  isEnabled: false
+#
+#  parameterDefinitions:
+#    - parameterName: "sin^{2}(2#theta_{14})"
+#      # nested parameter -> apply along with "#Delta m^{2}_{14}"
+#      isEnabled: true
+#      priorValue: 0
+#      priorType: Flat
+#      parameterLimit:
+#        minValue: 0
+#        maxValue: 1
+#      dialSetDefinitions:
+#        - dialsType: Normalization
+#          isNested: true
+#
+#    - parameterName: "#Delta m^{2}_{14}"
+#      isEnabled: true
+#      priorValue: 2
+#      priorType: Flat
+#      parameterLimit:
+#        minValue: 1
+#        maxValue: 100
+#
+#      dialSetDefinitions:
+#        - dialsType: Normalization
+#          isNested: true
+#
+#  nestedDials:
+#    - name: "Disappearance probability"
+#      applyOnDataSets: [ "*" ]
+#      propagateResponseOn: [ "weight" ] # TODO: implement
+#      applyCondition: "TMath::Abs([NeutrinoCode]) == 12" # apply on nue
+#      parametersList: ["sin^{2}(2#theta_{14})", "#Delta m^{2}_{14}"] # the way it is indexed
+#      evalFormula: "1 - x[0] * TMath::Sq(TMath::Sin( 1.27 * x[1] * 0.280 / [Enu] ))"
 
 
 # Flux Systematics:
