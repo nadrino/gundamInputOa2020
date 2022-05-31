@@ -14,7 +14,7 @@
 
   mc:
     tree: "sample_sum"
-    nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) )"
+    nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * ( NVertexID == 1 )"
 #    additionalLeavesStorage: [ "SelectedSample" ]
     filePathList:
       - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root"
@@ -32,7 +32,7 @@
 #      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run5MCsplines.root"
 
   data:
-    - name: "2p2hTwice"
+    - name: "FakeDataStudyTest"
       fromMc: true
       nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) )"
 

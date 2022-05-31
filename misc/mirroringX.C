@@ -8,7 +8,7 @@ TCanvas *c1 = new TCanvas("c1");
 ENUM_EXPANDER(
   DialType, -1
   ,Invalid
-  ,Normalization // response = dial
+  ,Norm // response = dial
   ,Spline        // response = spline(dial)
   ,Graph         // response = graphInterpol(dial)
 )
