@@ -15,7 +15,7 @@
 
   mc:
     tree: "sample_sum"
-    nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * ( NVertexID == 1 )"
+    nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) ) * ( NVertexID == 1 ) * foundTrueVert * passedPsyche"
 #    additionalLeavesStorage: [ "SelectedSample" ]
     filePathList:
       - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root"
