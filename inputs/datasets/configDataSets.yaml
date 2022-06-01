@@ -7,7 +7,8 @@
 
   showSelectedEventCount: true
 
-  selectedDataEntry: "Asimov" # default
+#  selectedDataEntry: "Asimov" # default
+  selectedDataEntry: "P6T"
 #  selectedDataEntry: "2p2h twice"
   selectedToyEntry: "Asimov" # default: Asimov
 #  selectedToyEntry: "pValueToys" # default: Asimov
@@ -36,11 +37,14 @@
       fromMc: true
       nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) )"
 
-    - name: "RealData"
-      nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight"
+    - name: "P6T"
+      tree: "data_event_tree"
       filePathList:
-        - "./P6T_Latest/Data/run4aMCsplines.root"
-        - "./P6T_Latest/Data/run5MCsplines.root"
+        - "/sps/t2k/common/inputs/OA2020/eventSummary/event_summary_Data.root"
+      overrideLeafDict: # originalVarName, toyVarName[nMaxToys]
+        - { eventVar: "Pmu",            leafVar: "RecoMuonMomentum" }
+        - { eventVar: "CosThetamu",     leafVar: "RecoMuonCosTheta" }
+        - { eventVar: "SelectedSample", leafVar: "SampleID" }
 
     - name: "pValueToys"
       fromMc: true
