@@ -46,7 +46,7 @@
   isEnabled: true
 
   # Fit Parameters Options:
-#  useEigenDecompInFit: false
+#  useEigenDecompInFit: true
 #  fixGhostFitParameters: true # false by default
 #  maxEigenFraction: 0.99
 #  maxNbEigenParameters: 30
