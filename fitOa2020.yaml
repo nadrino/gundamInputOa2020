@@ -19,7 +19,7 @@ fitterEngineConfig:
   # while too many parameters are
   fixGhostFitParameters: true
   # If the stat chi2 don't move over this value, the parameter will be fixed
-  ghostParameterDeltaChi2Threshold: 0.005
+  ghostParameterDeltaChi2Threshold: 0.01
   fixGhostEigenParmetersAfterFirstRejected: true
 
   # Apply gain on the determination of the step size for the fitter
