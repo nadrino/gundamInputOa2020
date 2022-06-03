@@ -9,30 +9,10 @@ generateSamplePlots: true
 
 fitterEngineConfig:
 
+  monitorRefreshRateInMs: 5000
+
   # Scanning parameters
-  scanConfig:
-    # With how many points the range will be scanned
-    # default: 100
-    nbPoints: 100
-
-    # Range in unit of sigma
-    # default: -3, 3
-    parameterSigmaRange: [-3,3]
-
-    # When limits are defined, used them as the scan boundaries
-    # If parameterSigmaRange is under the limit, then parameterSigmaRange is used.
-    # default: true
-    useParameterLimits: true
-
-    # Breakdown scans
-    varsConfig:
-      llh: true
-      llhPenalty: true
-      llhStat: true
-      llhStatPerSample: true
-      llhStatPerSamplePerBin: false
-      weightPerSample: false
-      weightPerSamplePerBin: false
+  scanConfig: "inputs/fitter/configScan.yaml"
 
   # Fixing parameters that don't have any effect on the sample.
   # Sometimes Minuit has trouble computing the Hessian matrix (non-positive definite)
@@ -58,41 +38,7 @@ fitterEngineConfig:
   restoreStepSizeBeforeHesse: false
 
   # Fitter engine config
-  minimizerConfig:
-    # https://root.cern.ch/doc/master/NumericalMinimization_8C.html
-    minimizer: "Minuit2"
-    algorithm: "Migrad"
-#    algorithm: "Fumili2"
-
-#    minimizer: "GSLMultiMin"
-#    algorithm: "BFGS2"
-#    algorithm: "ConjugateFR"
-
-    errors: "Hesse"
-#    errors: "Minos"
-    enablePostFitErrorFit: true
-
-    # https://root.cern.ch/download/minuit.pdf
-    print_level: 2
-
-    # Migrad: The default tolerance is 0.1, and the minimization will stop
-    # when the estimated vertical distance to the minimum (EDM) is less
-    # than 0.001*[tolerance]*UP (see SET ERR).
-    # UP:
-    # Minuit defines parameter errors as the change in parameter value required
-    # to change the function value by UP. Normally, for chisquared fits
-    # UP=1, and for negative log likelihood, UP=0.5
-    tolerance: 1E-4 # 1E-4
-    #    tolerance: 0.1 # for debug
-    strategy: 1 # used also in BANFF
-    max_iter: 100000
-    max_fcn: 1E9
-
-    # useNormalizedFitSpace: when true, every parameter is rescaled such as the
-    # prior mean value is set to 0 and the prior sigma is set to 1. This option
-    # can help Minuit to converge while some parameter may have very different scales.
-    # default: true
-    useNormalizedFitSpace: true
+  minimizerConfig: "inputs/fitter/configMinimizer.yaml"
 
   propagatorConfig:
     showEventBreakdown: true # default: true
