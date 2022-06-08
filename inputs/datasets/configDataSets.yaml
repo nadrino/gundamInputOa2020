@@ -15,25 +15,27 @@
 
   mc:
     tree: "sample_sum"
-    selectionCutFormula: "( NVertexID == 1 ) * foundTrueVert * passedPsyche"
+    selectionCutFormula: "( NVertexID == 1 ) * foundTrueVert * passedPsyche * (!isConsecutiveIdenticalEvent)"
     nominalWeightFormula: "FluxWeight[0] * PileUpWeight * POTWeight * ( 1 + ( TMath::Abs(ReactionCode) == 38 ) )"
 #    additionalLeavesStorage: [ "SelectedSample" ]
     filePathList:
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run5MCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run2aMCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run2wMCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run3MCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run4wMCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run6MCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run7MCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run8aMCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run8wMCsplines.root"
-      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run9MCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run4aMCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run5MCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run2aMCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run2wMCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run3MCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run4wMCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run6MCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run7MCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run8aMCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run8wMCsplines.root"
+#      - "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam/run9MCsplines.root"
 #      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root"
 #      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/run5MCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/ExtraBranchesForGundam/run4aMCsplines.root"
-#      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/ExtraBranchesForGundam/run5MCsplines.root"
+      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/ExtraBranchesForGundam/run4aMCsplines.root"
+      - "/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/ExtraBranchesForGundam/run5MCsplines.root"
+    overrideLeafDict: # originalVarName, otherLeafName[optionalArrayIndex]
+      - { eventVar: "Pmu",            leafVar: "PmuCoulombCorrection" }
 
   data:
     - name: "FakeDataStudyTest"
