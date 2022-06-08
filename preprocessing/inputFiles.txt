@@ -1,0 +1,11 @@
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run4aMCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run5MCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run2aMCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run2wMCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run3MCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run4wMCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run6MCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run7MCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run8aMCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run8wMCsplines.root
+/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/run9MCsplines.root
