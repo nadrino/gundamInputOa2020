@@ -7,7 +7,7 @@ bool overrideOutput{false}; // ignore if files have already been processed.
 //std::string toyFolder{"/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded_DetThrows"};
 std::string toyFolder{"/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThrows"};
 //std::string asimovFolder{"/Users/ablanche/Documents/Work/Output/results/gundam/common/OA2020/NDMC_psycheInfoAdded/ExtraBranchesForGundam"};
-std::string asimovFolder{"/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/ExtraBranchesForGundam"};
+std::string asimovFolder{"/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam"};
 
 std::map<std::string, std::string> filePairs{
     {"run4a_throw_splines.root", "run4aMCsplines.root"}
@@ -60,6 +60,8 @@ void processToySampleSum(){
 
     LogDebug << GET_VAR_NAME_VALUE(toyTree->GetEntries()) << std::endl;
     LogDebug << GET_VAR_NAME_VALUE(asimovTree->GetEntries()) << std::endl;
+
+    LogThrowIf( toyTree->GetEntries() != asimovTree->GetEntries(), "Trees don't match");
 
     GenericToolbox::mkdirPath(outputFolder);
     LogInfo << "Creating: " << outputPath << std::endl;
