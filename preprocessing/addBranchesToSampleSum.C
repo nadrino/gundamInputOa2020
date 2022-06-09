@@ -1,6 +1,8 @@
 #include "GenericToolbox.Root.h"
 #include "Logger.h"
 
+bool overrideOutput{false}; // ignore if files have already been processed.
+
 // std::string outputFolder = "./out";
 std::string outputFolder = "/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/WithExtraBranchesForGundam";
 
@@ -24,12 +26,15 @@ void addBranchesToSampleSum(){
     auto* tree = inFile->Get<TTree>("sample_sum");
     LogThrowIf(tree==nullptr, "Can't find sample_sum tree.");
 
-    GenericToolbox::mkdirPath(outputFolder);
     std::string outputPath = outputFolder + "/" + GenericToolbox::getFileNameFromFilePath(filePath);
+    if( not overrideOutput and GenericToolbox::doesTFileIsValid(outputPath) ){
+      LogWarning << outputPath << " -> already processed." << std::endl;
+      continue;
+    }
+
+    GenericToolbox::mkdirPath(outputFolder);
     LogInfo << "Creating: " << outputPath << std::endl;
-
     auto* outFile = TFile::Open( outputPath.c_str(), "RECREATE" );
-
     LogInfo << "Clonning input tree..." << std::endl;
     tree->SetBranchStatus("*", true);
     auto* outTree = tree->CloneTree();
