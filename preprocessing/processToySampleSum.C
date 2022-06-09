@@ -10,12 +10,16 @@ std::string toyFolder{"/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded_DetThr
 std::string asimovFolder{"/sps/t2k/common/inputs/OA2020/NDMC_psycheInfoAdded/ExtraBranchesForGundam"};
 
 std::map<std::string, std::string> filePairs{
-    {"run2a_throw_splines.root", "run2aMCsplines.root"},
-    {"run2w_throw_splines.root", "run2wMCsplines.root"},
-    {"run3_throw_splines.root", "run3MCsplines.root"},
-    {"run4a_throw_splines.root", "run4aMCsplines.root"},
-    {"run4w_throw_splines.root", "run4wMCsplines.root"},
-    {"run5_throw_splines.root", "run5MCsplines.root"}
+    {"run4a_throw_splines.root", "run4aMCsplines.root"}
+    ,{"run5_throw_splines.root", "run5MCsplines.root"}
+    ,{"run2a_throw_splines.root", "run2aMCsplines.root"}
+    ,{"run2w_throw_splines.root", "run2wMCsplines.root"}
+    ,{"run3_throw_splines.root", "run3MCsplines.root"}
+    ,{"run4w_throw_splines.root", "run4wMCsplines.root"}
+    ,{"run6_throw_splines.root", "run6MCsplines.root"}
+    ,{"run7_throw_splines.root", "run7MCsplines.root"}
+    ,{"run8w_throw_splines.root", "run8wMCsplines.root"}
+    ,{"run9_throw_splines.root", "run9MCsplines.root"}
 };
 
 std::vector<std::string> branchesToAdd{
