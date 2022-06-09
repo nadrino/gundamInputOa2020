@@ -7,6 +7,7 @@ scanParameters: false # can be triggered with --scan
 generateOneSigmaPlots: false # can be enabled with --one-sigma
 generateSamplePlots: true
 
+outputFolder: "./output"
 minGundamVersion: 1.4.3
 
 fitterEngineConfig:
