@@ -46,7 +46,7 @@
   isEnabled: true
 
   # Fit Parameters Options:
-#  useEigenDecompInFit: false
+#  useEigenDecompInFit: true
 #  fixGhostFitParameters: true # false by default
 #  maxEigenFraction: 0.99
 #  maxNbEigenParameters: 30
@@ -131,6 +131,7 @@
         - dialsType: Spline
           applyOnDataSets: [ "ND280" ]
           minDialResponse: 0
+          applyCondition: "[TgtMat] == 12"
           binningFilePath: "./inputs/parameters/xsecBinned/binning_EB_bin_C_nu.txt"
           dialsFilePath:   "./inputs/parameters/xsecBinned/Eb_dials.root"
 #          dialsList:       "EB_bin_C_nu_graphs" # TObjArray
@@ -141,6 +142,7 @@
         - dialsType: Spline
           applyOnDataSets: [ "ND280" ]
           minDialResponse: 0
+          applyCondition: "[TgtMat] == 12"
           binningFilePath: "./inputs/parameters/xsecBinned/binning_EB_bin_C_nubar.txt"
           dialsFilePath:   "./inputs/parameters/xsecBinned/Eb_dials.root"
 #          dialsList:       "EB_bin_C_nubar_graphs" # TObjArray
@@ -151,6 +153,7 @@
         - dialsType: Spline
           applyOnDataSets: [ "ND280" ]
           minDialResponse: 0
+          applyCondition: "[TgtMat] == 16"
           binningFilePath: "./inputs/parameters/xsecBinned/binning_EB_bin_O_nu.txt"
           dialsFilePath:   "./inputs/parameters/xsecBinned/Eb_dials.root"
 #          dialsList:       "EB_bin_O_nu_graphs" # TObjArray
@@ -161,6 +164,7 @@
         - dialsType: Spline
           applyOnDataSets: [ "ND280" ]
           minDialResponse: 0
+          applyCondition: "[TgtMat] == 16"
           binningFilePath: "./inputs/parameters/xsecBinned/binning_EB_bin_O_nubar.txt"
           dialsFilePath:   "./inputs/parameters/xsecBinned/Eb_dials.root"
 #          dialsList:       "EB_bin_O_nubar_graphs" # TObjArray

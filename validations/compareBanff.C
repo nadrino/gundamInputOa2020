@@ -1,13 +1,14 @@
 #include "Logger.h"
 
-std::string gundamOutFilePath{"../oa2020Official.json.root"};
+//std::string gundamOutFilePath{"../oa2020Official.json.root"};
+std::string gundamOutFilePath{"../fit.allPars.json.root"};
 
 std::string banffOutFilePath{"./postfitfile_Asimov.root"};
 
 std::string outFilePath{"./compareBanff.root"};
 
-std::string gundamBaseFolder{"FitterEngine/postFit/Migrad/errors"};
-//std::string gundamBaseFolder{"FitterEngine/postFit/Hesse/errors"};
+//std::string gundamBaseFolder{"FitterEngine/postFit/Migrad/errors"};
+std::string gundamBaseFolder{"FitterEngine/postFit/Hesse/errors"};
 
 std::vector<std::string> banffParSetList{
   "Flux Systematics",
