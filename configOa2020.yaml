@@ -8,7 +8,7 @@ generateOneSigmaPlots: false # can be enabled with --one-sigma
 generateSamplePlots: true
 
 outputFolder: "./output"
-minGundamVersion: 1.4.3
+minGundamVersion: 1.4.4
 
 fitterEngineConfig:
 
