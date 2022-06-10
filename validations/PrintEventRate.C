@@ -115,11 +115,10 @@ void PrintEventRate()
 {
 
     
-//     freopen("output.txt","w",stdout); // uncomment to save the log in a .txt file
+    freopen("output.txt","w",stdout); // uncomment to save the log in a .txt file
 
     
     string filename = "./MultiPiRHC_v3r47_Data.root"; 
-    
     bool doPhotonProton = false;
     
     TFile *file = new TFile(filename.c_str(), "READ");
@@ -132,9 +131,9 @@ void PrintEventRate()
         "prefit with POT weights",
         "prefit with Nom.\\ flux weights",
         "prefit with Nom.\\ ObsNorm weights (574 params)",
-//         "prefit with Nom.\\ XSec weights",
+        "prefit with Nom.\\ Det.\\ weights",
+        "prefit with Flux \\& XSec weights",
         "prefit with Nom.\\ XSec \\& XSecBin weights",
-//         "prefit with Flux \& XSec weights",
 //         "prefit with Flux, XSec \& XSecBin weights",
         
     };
@@ -143,19 +142,21 @@ void PrintEventRate()
         "prefit_withPOTWeights",
         "prefit_withNomFluxWeights",
         "prefit_withNomCovWeights",
-//         "prefit_withNomXSecWeights",
+        "prefit_withNomDetWeights",
+        "prefit_withNomXSecWeights",
         "prefit_withNomXSecWeights",
 //         "prefit_withNomFluxAndXSecWeights",
 //         "prefit_withNomFluxAndXSecWeights",
     };
     
     std::vector<string> types_gundam = {
-        "withPassedPsychePileUpWeight",
-        "withPassedPsychePileUpPOTWeight",
-        "PileUp_Flux_POT_passedPsyche",
-        "withPassedPsychePileUpPOTObsWeight_3",
-//         "withPassedPsychePileUpPOTXsecWeight",
-        "withPassedPsychePileUpPOTXsecXsecbinWeight",
+        "NoWeights",
+        "POTWeights",
+        "POTFluxWeights",
+        "POTObsNormWeights",
+        "POTDetWeights",
+        "POTXsecWeights",
+        "POTXsecXsecbinWeights",
 //         "withPassedPsychePileUpPOTFluxXsecWeight",
 //         "withPassedPsychePileUpPOTFluxXsecXsecBinWeight",
     };
@@ -166,7 +167,7 @@ void PrintEventRate()
     // 
     for (int iType = 0; iType < types_gundam.size(); iType++){
         files_gundam.emplace_back(new TFile(Form(
-            "/sps/t2k/jchakran/xsec-fitter/gundam/OA2020/validations/val_%s.root", 
+            "/sps/t2k/jchakran/gundam/outputs/OA2020/validations/val_%s.root", 
             types_gundam[iType].c_str()
         )));        
     }
@@ -245,11 +246,11 @@ void PrintEventRate()
         
         std::cout << std::endl;
         std::cout << "\\begin{my}" << std::endl; 
-        std::cout << "\\begin{tabular}{|l|c|c|c|}" << std::endl; 
+        std::cout << "\\begin{tabular}{|l|c|c|}" << std::endl; 
         std::cout << "\\hline" << std::endl;
         std::cout << "\\hline" << std::endl;
 
-        std::cout << name_display[iName] << " & BANFF & BANFF+overflow & GUNDAM \\\\"  << std::endl; 
+        std::cout << name_display[iName] << " & BANFF & GUNDAM \\\\"  << std::endl; 
         std::cout << "\\hline" << std::endl;
 
         double totalMCEvents = 0.;
@@ -280,8 +281,7 @@ void PrintEventRate()
                 TH1D* pmu_projection = histo->Projection(0);
                 
                 std::cout << type_display[iType] << " & "
-                          << MCcounter << " & "
-                          << MCcounter + pmu_projection->GetBinContent(0) << " & "; 
+                          << MCcounter << " & ";
 
                 totalMCEvents += histo->GetEntries();
                 
