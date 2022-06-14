@@ -86,9 +86,9 @@
   # Allow fit parameters to be thrown before fit (default: true)
   enabledThrowToyParameters: false
 
-  covarianceMatrixFilePath: "./inputs/parameters/detector/obsnorm_574binning_BANFF_Neutrino2020.root.decomp.root"
-  covarianceMatrixTMatrixD: Covariance_Matrix
-  parameterPriorTVectorD: Prior_Weights
+  covarianceMatrixFilePath: "./inputs/parameters/detector/obsnorm_574binning_BANFF_Neutrino2020.root"
+  covarianceMatrixTMatrixD: obsNorm_cov
+  parameterPriorTVectorD: obsNorm_weights
   useOnlyOneParameterPerEvent: true # since the cov matrix correspond to kinematic bins
   parameterLimits:
     minValue: 0
@@ -318,21 +318,21 @@
       priorType: Flat
       dialSetDefinitions:
         - dialsType: Normalization
-          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0 <= [Q2] && [Q2] < 0.05"
+          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0 <= [Q2] && [Q2] < 0.05 && ( [TgtMat] == 12 || [TgtMat] == 16 ) && ( TMath::Abs([NeutrinoCode]) == 14 || TMath::Abs([NeutrinoCode]) == 12 )"
     - parameterName: "Q2_norm_1"
       isEnabled: true
       priorValue: 0.695 # Clarence priors
       priorType: Flat
       dialSetDefinitions:
         - dialsType: Normalization
-          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.05 <= [Q2] && [Q2] < 0.1"
+          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.05 <= [Q2] && [Q2] < 0.1 && ( [TgtMat] == 12 || [TgtMat] == 16 ) && ( TMath::Abs([NeutrinoCode]) == 14 || TMath::Abs([NeutrinoCode]) == 12 )"
     - parameterName: "Q2_norm_2"
       isEnabled: true
       priorValue: 0.78 # Clarence priors
       priorType: Flat
       dialSetDefinitions:
         - dialsType: Normalization
-          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.1 <= [Q2] && [Q2] < 0.15"
+          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.1 <= [Q2] && [Q2] < 0.15 && ( [TgtMat] == 12 || [TgtMat] == 16 ) && ( TMath::Abs([NeutrinoCode]) == 14 || TMath::Abs([NeutrinoCode]) == 12 )"
     - parameterName: "Q2_norm_3"
       isEnabled: true
       priorValue: 0.89 # Clarence priors
@@ -340,7 +340,7 @@
       dialSetDefinitions:
         - dialsType: Normalization
           nominal: 1
-          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.15 <= [Q2] && [Q2] < 0.2"
+          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.15 <= [Q2] && [Q2] < 0.2 && ( [TgtMat] == 12 || [TgtMat] == 16 ) && ( TMath::Abs([NeutrinoCode]) == 14 || TMath::Abs([NeutrinoCode]) == 12 )"
     - parameterName: "Q2_norm_4"
       isEnabled: true
       priorValue: 0.93 # Clarence priors
@@ -348,25 +348,25 @@
       dialSetDefinitions:
         - dialsType: Normalization
           nominal: 1
-          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.2 <= [Q2] && [Q2] < 0.25"
+          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.2 <= [Q2] && [Q2] < 0.25 && ( [TgtMat] == 12 || [TgtMat] == 16 ) && ( TMath::Abs([NeutrinoCode]) == 14 || TMath::Abs([NeutrinoCode]) == 12 )"
     - parameterName: "Q2_norm_5"
       isEnabled: true
       dialSetDefinitions:
         - dialsType: Normalization
           nominal: 1
-          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.25 <= [Q2] && [Q2] < 0.5"
+          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.25 <= [Q2] && [Q2] < 0.5 && ( [TgtMat] == 12 || [TgtMat] == 16 ) && ( TMath::Abs([NeutrinoCode]) == 14 || TMath::Abs([NeutrinoCode]) == 12 )"
     - parameterName: "Q2_norm_6"
       isEnabled: true
       dialSetDefinitions:
         - dialsType: Normalization
           nominal: 1
-          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.5 <= [Q2] && [Q2] < 1"
+          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 0.5 <= [Q2] && [Q2] < 1 && ( [TgtMat] == 12 || [TgtMat] == 16 ) && ( TMath::Abs([NeutrinoCode]) == 14 || TMath::Abs([NeutrinoCode]) == 12 )"
     - parameterName: "Q2_norm_7"
       isEnabled: true
       dialSetDefinitions:
         - dialsType: Normalization
           nominal: 1
-          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 1 <= [Q2] && [Q2] < 10"
+          applyCondition: "TMath::Abs([ReactionCode]) == 1 && 1 <= [Q2] && [Q2] < 10 && ( [TgtMat] == 12 || [TgtMat] == 16 ) && ( TMath::Abs([NeutrinoCode]) == 14 || TMath::Abs([NeutrinoCode]) == 12 )"
 
     - parameterName: "2p2h_norm_nu"
       isEnabled: true
