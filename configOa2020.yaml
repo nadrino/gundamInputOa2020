@@ -8,7 +8,7 @@ generateOneSigmaPlots: false # can be enabled with --one-sigma
 generateSamplePlots: true
 
 outputFolder: "./output"
-minGundamVersion: 1.4.4
+minGundamVersion: 1.4.5
 
 fitterEngineConfig:
 
@@ -46,6 +46,8 @@ fitterEngineConfig:
   propagatorConfig:
     showEventBreakdown: true # default: true
     showEventBreakdownBeforePrior: true # default: false
+
+#    enableStatThrowInToys: false # default true
 
     dataSetList:            "./inputs/datasets/configDataSets.yaml"
     fitSampleSetConfig:     "./inputs/samples/configSamples.yaml"
