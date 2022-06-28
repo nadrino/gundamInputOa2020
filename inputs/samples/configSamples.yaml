@@ -1,6 +1,8 @@
 # Sample Configuration
 
-llhStatFunction: "BarlowLLH_OA2020_Bad"
+llhStatFunction: "BarlowLLH_BANFF_OA2020"
+#llhStatFunction: "BarlowLLH"
+#llhStatFunction: "PoissonLLH"
 
 fitSampleList:
 
