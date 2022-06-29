@@ -84,7 +84,7 @@
 #  maxNbEigenParameters: 45
 
   # Allow fit parameters to be thrown before fit (default: true)
-  enabledThrowToyParameters: false
+#  enabledThrowToyParameters: false
 
   covarianceMatrixFilePath: "./inputs/parameters/detector/obsnorm_574binning_BANFF_Neutrino2020.root.decomp.root"
   covarianceMatrixTMatrixD: Covariance_Matrix
